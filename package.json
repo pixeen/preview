@@ -1,5 +1,5 @@
 {
-  "name": "@pixeen/preview",
+  "name": "@pixeen/pixeen",
   "version": "0.0.0",
   "bin": "bin/index.js",
   "repository": "git@github.com:pixeen/preview.git",
