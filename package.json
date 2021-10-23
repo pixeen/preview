@@ -1,7 +1,7 @@
 {
   "name": "@pixeen/preview",
   "version": "0.0.0",
-  "bin": "src/index.tsc",
+  "bin": "src/index.ts",
   "repository": "git@github.com:pixeen/preview.git",
   "author": "jeroengerits <jeroen@gerits.email>",
   "scripts": {
