@@ -13,5 +13,6 @@ const port = 3000
     const server = await createServer({server: {port}})
     await server.listen()
     console.log(__dirname)
+    console.log(process.cwd())
     console.log(`http://localhost:${port}`)
 })()
