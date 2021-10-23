@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-console.log("Pixeen Preview...")
+console.log("Pixeen Preview, testing updates...")
