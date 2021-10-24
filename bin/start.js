@@ -18,7 +18,7 @@ const userPixeenConfigPath = `${userPath}/.pixeen`
 
 try {
     if (!fs.existsSync(`${userPixeenConfigPath}/index.html`)) {
-        console.error('Does not have an ./.pixeen/preview/index.html')
+        console.error('Does not have an html template...')
         console.log('Creating ./.pixeen/preview/index.html')
         // @todo copy file from template
         // return;
@@ -29,7 +29,7 @@ try {
 
 try {
     if (!fs.existsSync(`${userPixeenConfigPath}/index.tsx`)) {
-        console.error('Does not have an ./.pixeen/preview/index.tsx')
+        console.error('Does not have component wrapper...')
         console.log('Creating ./.pixeen/preview/index.tsx')
         // @todo copy file from template
         // return;
