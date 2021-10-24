@@ -47,8 +47,9 @@ const port = 3000
 
 ;(async () => {
     const server = await createServer({
+        root: `${userPath}/.pixeen/preview`,
         server: {
-            port
+            port,
         }
     })
     await server.listen()
