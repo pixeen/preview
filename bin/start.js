@@ -14,10 +14,24 @@ const packagePath = __dirname
 
 const userPackagePath = `${userPath}/package.json`
 
-// Check if there is a package.json in Userland path
+const userPixeenConfigPath = `${userPath}/.pixeen`
+
 try {
-    if (!fs.existsSync(userPackagePath)) {
-        console.error('ERROR: Requires project.json file in the root folder...')
+    if (!fs.existsSync(`${userPixeenConfigPath}/index.html`)) {
+        console.error('Does not have an ./.pixeen/preview/index.html')
+        console.log('Creating ./.pixeen/preview/index.html')
+        // @todo copy file from template
+        // return;
+    }
+} catch (err) {
+    console.dir(err)
+}
+
+try {
+    if (!fs.existsSync(`${userPixeenConfigPath}/index.tsx`)) {
+        console.error('Does not have an ./.pixeen/preview/index.tsx')
+        console.log('Creating ./.pixeen/preview/index.tsx')
+        // @todo copy file from template
         // return;
     }
 } catch (err) {
