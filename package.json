@@ -1,10 +1,12 @@
 {
   "name": "@pixeen/pixeen",
   "version": "0.0.0",
-  "bin": "bin/index.js",
+  "bin": "bin/start.js",
   "repository": "git@github.com:pixeen/preview.git",
   "author": "jeroengerits <jeroen@gerits.email>",
   "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "vite": "^2.6.10"
   }
 }
