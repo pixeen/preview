@@ -12,7 +12,6 @@ const pixeenTemplatePath = `${__dirname}/../templates/preview/index.html`
 const pixeenComponentPath = `${__dirname}/../templates/preview/index.tsx`
 
 const init = async () => {
-    console.log(`Starting Pixeen Preview...`.bgYellow.black)
     if (!await fs.exists(userTemplatePath)) {
         await fs.copy(pixeenTemplatePath, userTemplatePath)
         console.log(` ${'✓'.green} File “${userTemplatePath}” created in project root.`)
@@ -33,7 +32,7 @@ const serve = async () => {
         },
     })
     const session = await server.listen()
-     console.log(`Started Pixeen Preview...`.bgGreen.black)
+     console.log(`Pixeen Preview...`.bgGreen.black)
    session.printUrls()
 }
 
