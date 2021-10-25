@@ -27,10 +27,11 @@ const serve = async () => {
         server: {
             port,
             host: true,
-            open: true,
+            // open: true,
         },
     })
     const session = await server.listen()
+    session.printUrls()
 }
 
 
