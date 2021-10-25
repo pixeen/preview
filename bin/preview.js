@@ -1,57 +1,37 @@
 #!/usr/bin/env node
 
-// requirements for vite
-// index.html
-// index.tsx
-
-const fs = require('fs')
-
-// Userland Path
-const userPath = process.cwd()
-
-// Package Path
-const packagePath = __dirname
-
-const userPackagePath = `${userPath}/package.json`
-
-const userPixeenConfigPath = `${userPath}/.pixeen`
-
-try {
-    if (!fs.existsSync(`${userPixeenConfigPath}/index.html`)) {
-        console.error('Does not have an html template...')
-        console.log('Creating ./.pixeen/preview/index.html')
-        // @todo copy file from template
-        // return;
-    }
-} catch (err) {
-    console.dir(err)
-}
-
-try {
-    if (!fs.existsSync(`${userPixeenConfigPath}/index.tsx`)) {
-        console.error('Does not have component wrapper...')
-        console.log('Creating ./.pixeen/preview/index.tsx')
-        // @todo copy file from template
-        // return;
-    }
-} catch (err) {
-    console.dir(err)
-}
-
-// 3. make sure it has a index.html
-// ...
-
 const {createServer} = require('vite')
+const fs = require("fs-extra");
 
-const port = 3000
+const port = 3000;
+const pixeenPath = '.pixeen'
+const userTemplatePath = `${pixeenPath}/preview/index.html`
+const userComponentPath = `${pixeenPath}/preview/index.tsx`
+const pixeenTemplatePath = `${process.cwd()}/templates/preview/index.html`
+const pixeenComponentPath = `${process.cwd()}/templates/preview/index.tsx`
 
-;(async () => {
+const init = async () => {
+    if (!await fs.exists(userTemplatePath)) {
+        await fs.copy(pixeenTemplatePath, userTemplatePath)
+        console.log('Created `.pixeen/preview/index.html`')
+    }
+    if (!await fs.exists(userComponentPath)) {
+        await fs.copy(pixeenComponentPath, userComponentPath)
+        console.log('Created `.pixeen/preview/index.tsx`')
+    }
+};
+
+const serve = async () => {
     const server = await createServer({
-        root: `${userPath}/.pixeen/preview`,
+        root: `${process.cwd()}/${pixeenPath}/preview`,
         server: {
             port,
-        }
+            host: true,
+            open: true,
+        },
     })
-    await server.listen()
-    console.log(`http://localhost:${port}`)
-})()
+    const session = await server.listen()
+}
+
+
+init().then(serve)
