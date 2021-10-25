@@ -3,6 +3,7 @@
 const {createServer} = require('vite')
 const fs = require("fs-extra");
 const colors = require('colors');
+const pkg = require(`${__dirname}/../package.json`)
 
 const port = 3000;
 const pixeenPath = '.pixeen'
@@ -32,7 +33,7 @@ const serve = async () => {
         },
     })
     const session = await server.listen()
-    console.log(`PIXEEN PREVIEW`.bgGreen.black)
+    console.log(` Pixeen Preview v${pkg.version} `.bgGreen.black)
     session.printUrls()
 }
 
