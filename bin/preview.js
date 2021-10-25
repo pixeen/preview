@@ -7,8 +7,8 @@ const port = 3000;
 const pixeenPath = '.pixeen'
 const userTemplatePath = `${pixeenPath}/preview/index.html`
 const userComponentPath = `${pixeenPath}/preview/index.tsx`
-const pixeenTemplatePath = `${process.cwd()}/templates/preview/index.html`
-const pixeenComponentPath = `${process.cwd()}/templates/preview/index.tsx`
+const pixeenTemplatePath = `${__dirname}/templates/preview/index.html`
+const pixeenComponentPath = `${__dirname}/templates/preview/index.tsx`
 
 const init = async () => {
     if (!await fs.exists(userTemplatePath)) {
