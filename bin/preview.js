@@ -13,16 +13,14 @@ const pixeenComponentPath = `${__dirname}/../templates/preview/index.tsx`
 const init = async () => {
     if (!await fs.exists(userTemplatePath)) {
         await fs.copy(pixeenTemplatePath, userTemplatePath)
-        console.log('Created `.pixeen/preview/index.html` in your project root.')
-    } else {
-        console.log('Found `.pixeen/preview/index.html`')
+        console.log(`✓ ${userTemplatePath} created in project root.`)
     }
     if (!await fs.exists(userComponentPath)) {
         await fs.copy(pixeenComponentPath, userComponentPath)
-        console.log('Created `.pixeen/preview/index.tsx` in your project root.')
-    } else {
-        console.log('Found `.pixeen/preview/index.tsx`')
+        console.log(`✓ ${userComponentPath} created in project root.`)
     }
+    console.log(`✓ Found Pixeen configuration.`)
+    console.log('🌐 Starting server...')
 };
 
 const serve = async () => {
