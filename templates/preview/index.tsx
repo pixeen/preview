@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import * as Component from '../../src/index'
 
 ReactDOM.render(
     <React.StrictMode>
-        <Component/>
+        <>
+            Change `.pixeen/preview/index.tsx` to preview your component.
+        </>
     </React.StrictMode>,
     document.getElementById('root')
 )
