@@ -2,6 +2,7 @@
 
 const {createServer} = require('vite')
 const fs = require("fs-extra");
+const colors = require('colors');
 
 const port = 3000;
 const pixeenPath = '.pixeen'
@@ -11,16 +12,15 @@ const pixeenTemplatePath = `${__dirname}/../templates/preview/index.html`
 const pixeenComponentPath = `${__dirname}/../templates/preview/index.tsx`
 
 const init = async () => {
+    console.log(`Starting Pixeen Preview...`.bgYellow.black)
     if (!await fs.exists(userTemplatePath)) {
         await fs.copy(pixeenTemplatePath, userTemplatePath)
-        console.log(` ✓ ${userTemplatePath} created in project root.`)
+        console.log(` ${'✓'.green} File “${userTemplatePath}” created in project root.`)
     }
     if (!await fs.exists(userComponentPath)) {
         await fs.copy(pixeenComponentPath, userComponentPath)
-        console.log(` ✓ ${userComponentPath} created in project root.`)
+        console.log(` ${'✓'.green} File “${userComponentPath}” created in project root.`)
     }
-    console.log(` ✓ Found Pixeen configuration.`)
-    console.log(' ✓ Launching Pixeen Preview')
 };
 
 const serve = async () => {
@@ -33,7 +33,8 @@ const serve = async () => {
         },
     })
     const session = await server.listen()
-    session.printUrls()
+     console.log(`Started Pixeen Preview...`.bgGreen.black)
+   session.printUrls()
 }
 
 
