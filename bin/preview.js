@@ -32,8 +32,8 @@ const serve = async () => {
         },
     })
     const session = await server.listen()
-     console.log(`Pixeen Preview...`.bgGreen.black)
-   session.printUrls()
+    console.log(`PIXEEN PREVIEW`.bgGreen.black)
+    session.printUrls()
 }
 
 
